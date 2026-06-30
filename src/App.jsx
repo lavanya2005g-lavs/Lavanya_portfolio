@@ -27,8 +27,12 @@ const GLOBAL_CSS = `
   .nav-link:hover, .nav-link.active { color: #fff; background: #1c1917; }
   .nav-hamburger { display: none; background: none; border: none; color: #1c1917;
                    font-size: 22px; cursor: pointer; padding: 4px 8px; line-height: 1; }
-  .nav-mobile-menu { display: none; flex-direction: column; padding: 8px 20px 22px; }
+  .nav-mobile-menu { display: none; flex-direction: column; padding: 10px 24px 26px;
+                      position: fixed; top: 66px; left: 0; right: 0; z-index: 998;
+                      background: #fafaf9; box-shadow: 0 12px 28px rgba(28,25,23,.12);
+                      border-bottom: 1px solid #efece8; max-height: calc(100vh - 66px); overflow-y: auto; }
   .nav-mobile-menu.open { display: flex; }
+  body.menu-open { overflow: hidden; }
   .nav-mobile-link { display: block; padding: 13px 0; color: #292524; text-decoration: none;
                      border-bottom: 1px solid #e7e5e4; font-size: 15px; font-weight: 600; }
 
@@ -399,13 +403,18 @@ function Nav({ active, setActive }) {
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
   const links = ["About", "Skills", "Experience", "Projects", "Education", "Certifications", "Achievements", "Contact"];
   return (
+    <>
     <nav style={{
       position: "fixed", top: 3, left: 0, right: 0, zIndex: 1000,
-      background: scrolled ? "rgba(250,250,249,0.85)" : "transparent",
-      backdropFilter: scrolled ? "blur(16px)" : "none",
-      boxShadow: scrolled ? "0 1px 0 #ece9e5" : "none",
+      background: (scrolled || menuOpen) ? "rgba(250,250,249,0.97)" : "transparent",
+      backdropFilter: (scrolled || menuOpen) ? "blur(16px)" : "none",
+      boxShadow: (scrolled || menuOpen) ? "0 1px 0 #ece9e5" : "none",
       transition: "all .35s ease", padding: "0 5vw",
     }}>
       <div style={{ maxWidth: 1180, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 66 }}>
@@ -425,6 +434,12 @@ function Nav({ active, setActive }) {
         ))}
       </div>
     </nav>
+    {menuOpen && (
+      <div onClick={() => setMenuOpen(false)} style={{
+        position: "fixed", inset: 0, top: 66, background: "rgba(28,25,23,.25)", zIndex: 997,
+      }} />
+    )}
+    </>
   );
 }
 
@@ -799,7 +814,7 @@ function Contact() {
         <Reveal delay={100}>
           <div className="card" style={{ padding: 32 }}>
             <p style={{ color: "#a8a29e", fontSize: 12, marginBottom: 18, lineHeight: 1.6 }}>
-             
+              Fill this in and it'll open your email app with a message ready to send to me directly — nothing is stored or sent silently.
             </p>
             <div style={{ marginBottom: 18 }}>
               <label style={{ fontSize: 12, color: "#a8a29e", display: "block", marginBottom: 7, fontWeight: 600 }}>Name</label>
