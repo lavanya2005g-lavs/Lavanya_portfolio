@@ -92,9 +92,11 @@ const GLOBAL_CSS = `
   .chip { font-size: 12px; padding: 5px 14px; border-radius: 99px; font-weight: 600;
           background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
 
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 22px; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 22px; grid-auto-rows: 1fr; align-items: stretch; }
+  .skills-grid > div, .skills-grid .card { height: 100%; box-sizing: border-box; }
 
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 26px; }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 26px; align-items: stretch; }
+  .projects-grid > div, .projects-grid .proj-card { height: 100%; box-sizing: border-box; }
   .proj-card     { background: #fff; border: 1px solid #efece8; border-radius: 24px; overflow: hidden;
                     display: flex; flex-direction: column; transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s; }
   .proj-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(28,25,23,.14); }
@@ -557,7 +559,8 @@ function About() {
 function Skills() {
   const cats = [
     { title: "Languages", color: "linear-gradient(90deg,#f97316,#fb923c)", skills: [["Java",88],["Python",82],["C",78],["SQL",76]] },
-    { title: "Web & Backend", color: "linear-gradient(90deg,#ec4899,#f472b6)", skills: [["HTML",92],["CSS",88],["JavaScript",85],["React.js",83],["Node.js",80],["Express.js",78],["REST APIs",82],["MERN Stack",85]] },
+    { title: "Web", color: "linear-gradient(90deg,#ec4899,#f472b6)", skills: [["HTML",92],["CSS",88],["JavaScript",85],["React.js",83]] },
+    { title: "Backend", color: "linear-gradient(90deg,#8b5cf6,#a78bfa)", skills: [["Node.js",80],["Express.js",78],["REST APIs",82],["MERN Stack",85]] },
     { title: "AI/ML", color: "linear-gradient(90deg,#8b5cf6,#a78bfa)", skills: [["Agentic AI",82],["LLMs",80],["RAG",78],["Generative AI",84],["QSVM",68],["NLP",74]] },
     { title: "Database & Cloud", color: "linear-gradient(90deg,#06b6d4,#22d3ee)", skills: [["MongoDB",82],["SQL",76],["DBMS",80],["AWS (EC2, S3, IAM)",78]] },
     { title: "Tools & Concepts", color: "linear-gradient(90deg,#f59e0b,#fbbf24)", skills: [["Git",88],["GitHub",88],["VS Code",95],["ServiceNow",70],["OOPS",85]] },
@@ -642,10 +645,8 @@ function ProjectCard({ p, delay }) {
             {p.stack.map(t => <span key={t} className="stack-tag">{t}</span>)}
           </div>
           <div style={{ display: "flex", gap: 10, marginTop: 20 }}>
-            {p.demo ? (
+            {p.demo && (
               <Magnetic><a href={p.demo} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: "9px 18px", fontSize: 12 }}>Live Demo ↗</a></Magnetic>
-            ) : (
-              <Magnetic><span className="btn-primary" style={{ padding: "9px 18px", fontSize: 12, opacity: .5, cursor: "default" }}>Live Demo (soon)</span></Magnetic>
             )}
             {p.github ? (
               <Magnetic><a href={p.github} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ padding: "9px 18px", fontSize: 12 }}>GitHub</a></Magnetic>
@@ -664,7 +665,7 @@ function Projects() {
       bg: "linear-gradient(135deg,#fff7ed,#fce7f3)",
       desc: "Developed an AI-powered platform that helps citizens discover relevant Central and State Government welfare schemes using profile-based eligibility information. Integrated Agentic AI and RAG-based retrieval for context-aware discovery, personalized eligibility guidance, multilingual assistance, document analysis, and step-by-step application guidance.",
       stack: ["Agentic AI","LLMs","RAG","QSVM"],
-      demo: null, github: null },
+      demo: null, github: "https://github.com/lavanya2005g-lavs/govassist-ai" },
     { title: "Intelligent Complaint Management Platform", featured: false, icon: "💬",
       bg: "linear-gradient(135deg,#eff6ff,#f0fdfa)",
       desc: "Built and deployed a full-stack complaint management platform supporting complaint submission, real-time tracking, CRUD operations, and RESTful API integration. Implemented MongoDB connectivity and responsive, user-facing workflows for managing complaints end-to-end.",
@@ -676,7 +677,7 @@ function Projects() {
       desc: "Designed and deployed a professional portfolio website to present technical skills, projects, certifications, and achievements in a recruiter-friendly format.",
       stack: ["React","Vercel"],
       demo: "https://lavanyagandikota-portfolio.vercel.app/",
-      github: null },
+      github: "https://github.com/lavanya2005g-lavs/Lavanya_portfolio" },
   ];
   return (
     <Section id="projects" style={{ background: "#fff" }}>
@@ -728,7 +729,7 @@ function Education() {
 /* ── CERTIFICATIONS ──────────────────────────────────────────────────────── */
 function Certifications() {
   const certs = [
-    ["⚙️","ServiceNow Certified Application Developer (CAD)","Zurich version",null],
+    ["⚙️","ServiceNow Certified Application Developer (CAD)","Zurich version","/certificates/servicenow-cad.pdf"],
     ["🌐","Full Stack Web Development with Node.js and MongoDB","L&T EduTech","/certificates/fullstack-it.pdf"],
     ["🤖","AWS Academy Graduate – Generative AI Foundations","AWS Academy","/certificates/aws-genai.pdf"],
     ["🧠","Introduction to Generative AI","Coursera","/certificates/coursera-genai.pdf"],
