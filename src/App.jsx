@@ -445,7 +445,7 @@ function Nav({ active, setActive }) {
 
 /* ── HERO ────────────────────────────────────────────────────────────────── */
 function Hero() {
-  const roles = ["Software Engineer", "Full Stack Developer", "MERN Stack Developer", "AI Enthusiast", "Cloud Computing Enthusiast"];
+  const roles = ["Information Technology Undergraduate", "Full-Stack Developer", "AI/ML Enthusiast", "Agentic AI Builder"];
   const typed = useTyping(roles);
   return (
     <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", padding: "100px 6vw 60px" }}>
@@ -467,7 +467,7 @@ function Hero() {
             {typed}<span style={{ animation: "blink 1s step-end infinite", color: "#ea580c" }}>|</span>
           </div>
           <p className="hero-tagline" style={{ color: "#78716c", lineHeight: 1.75, maxWidth: 520, marginTop: 18, opacity: 0, animation: "fadeUp .8s ease .7s forwards" }}>
-            Building intelligent, scalable, and impactful digital experiences through Full Stack Development, Cloud Computing, and AI.
+            Final-year B.Tech IT student building practical full-stack and Agentic AI solutions with MERN, AWS, REST APIs, RAG, and LLMs.
           </p>
           <div className="hero-btns" style={{ opacity: 0, animation: "fadeUp .8s ease .9s forwards" }}>
             <Magnetic><a href="#projects" className="btn-primary">View Projects ↗</a></Magnetic>
@@ -503,7 +503,7 @@ function Hero() {
 
 /* ── STATS ───────────────────────────────────────────────────────────────── */
 function Stats() {
-  const stats = [["9.2","B.Tech CGPA"],["8.9","Diploma CGPA"],["6+","Certifications"],["100","Day Streak 🔥"]];
+  const stats = [["9.2","B.Tech CGPA"],["8.9","Diploma CGPA"],["7","Certifications"],["100","Day Streak 🔥"]];
   return (
     <section style={{ padding: "52px 6vw", background: "#fff", borderTop: "1px solid #efece8", borderBottom: "1px solid #efece8" }}>
       <div className="stats-grid">
@@ -531,10 +531,10 @@ function About() {
           <div className="card" style={{ padding: 36 }}>
             <h3 style={{ fontFamily: "'Sora',sans-serif", color: "#1c1917", fontSize: 17, fontWeight: 700, marginBottom: 14 }}>Professional Summary</h3>
             <p style={{ color: "#57534e", lineHeight: 1.85, fontSize: 14.5 }}>
-              Motivated IT undergraduate passionate about Full Stack Development, Cloud Computing, and Artificial Intelligence. Skilled in MERN Stack, Java, AWS, and Data Analytics with a strong desire to build scalable applications and solve real-world problems.
+              Final-year B.Tech Information Technology student with a 9.2 GPA and hands-on experience in MERN stack development, Java, AWS cloud computing, and AI-driven applications. Skilled in building full-stack and Agentic AI solutions using REST APIs, RAG, and LLMs, with a published research paper and a strong focus on delivering practical, scalable software.
             </p>
             <div style={{ marginTop: 26, display: "flex", gap: 10, flexWrap: "wrap" }}>
-              {["MERN Stack","AWS","Java","AI/ML","REST APIs"].map(t => <span key={t} className="chip">{t}</span>)}
+              {["MERN Stack","AWS","Agentic AI","RAG","LLMs"].map(t => <span key={t} className="chip">{t}</span>)}
             </div>
           </div>
         </Reveal>
@@ -556,12 +556,11 @@ function About() {
 /* ── SKILLS ──────────────────────────────────────────────────────────────── */
 function Skills() {
   const cats = [
-    { title: "Programming", color: "linear-gradient(90deg,#f97316,#fb923c)", skills: [["Java",88],["Python",82],["C",78],["C++",75],["C#",65]] },
-    { title: "Frontend", color: "linear-gradient(90deg,#ec4899,#f472b6)", skills: [["HTML",92],["CSS",88],["JavaScript",85],["React.js",83],["Tailwind CSS",80]] },
-    { title: "Backend", color: "linear-gradient(90deg,#8b5cf6,#a78bfa)", skills: [["Node.js",80],["Express.js",78]] },
-    { title: "Database", color: "linear-gradient(90deg,#06b6d4,#22d3ee)", skills: [["MongoDB",82],["SQL",76]] },
-    { title: "Cloud & Tools", color: "linear-gradient(90deg,#f59e0b,#fbbf24)", skills: [["AWS",72],["Git",88],["VS Code",95]] },
-    { title: "Concepts", color: "linear-gradient(90deg,#10b981,#34d399)", skills: [["DBMS",80],["OOP",85],["REST APIs",82]] },
+    { title: "Languages", color: "linear-gradient(90deg,#f97316,#fb923c)", skills: [["Java",88],["Python",82],["C",78],["SQL",76]] },
+    { title: "Web & Backend", color: "linear-gradient(90deg,#ec4899,#f472b6)", skills: [["HTML",92],["CSS",88],["JavaScript",85],["React.js",83],["Node.js",80],["Express.js",78],["REST APIs",82],["MERN Stack",85]] },
+    { title: "AI/ML", color: "linear-gradient(90deg,#8b5cf6,#a78bfa)", skills: [["Agentic AI",82],["LLMs",80],["RAG",78],["Generative AI",84],["QSVM",68],["NLP",74]] },
+    { title: "Database & Cloud", color: "linear-gradient(90deg,#06b6d4,#22d3ee)", skills: [["MongoDB",82],["SQL",76],["DBMS",80],["AWS (EC2, S3, IAM)",78]] },
+    { title: "Tools & Concepts", color: "linear-gradient(90deg,#f59e0b,#fbbf24)", skills: [["Git",88],["GitHub",88],["VS Code",95],["ServiceNow",70],["OOPS",85]] },
   ];
   return (
     <Section id="skills" style={{ background: "#fff" }}>
@@ -599,9 +598,8 @@ function Experience() {
             </div>
             <ul style={{ color: "#57534e", lineHeight: 1.8, paddingLeft: 0, fontSize: 14, listStyle: "none" }}>
               {[
-                "Worked with AWS cloud services across multiple service categories.",
-                "Gained hands-on experience in cloud deployment and resource management.",
-                "Built and maintained cloud infrastructure using basic DevOps workflows.",
+                "Worked with AWS cloud services including EC2, S3, IAM, and gained practical exposure to cloud resource management and deployment workflows.",
+                "Supported hands-on cloud infrastructure activities and built foundational knowledge of DevOps practices and real-time resource management.",
               ].map((line, i) => (
                 <li key={i} style={{ display: "flex", gap: 10, marginBottom: 10, alignItems: "flex-start" }}>
                   <span style={{ color: "#ea580c", fontSize: 14, lineHeight: "22px", flexShrink: 0 }}>●</span>
@@ -610,7 +608,7 @@ function Experience() {
               ))}
             </ul>
             <div style={{ display: "flex", gap: 8, marginTop: 18, flexWrap: "wrap" }}>
-              {["AWS","Cloud Infrastructure","DevOps","Resource Management"].map(t => <span key={t} className="stack-tag">{t}</span>)}
+              {["EC2","S3","IAM","DevOps"].map(t => <span key={t} className="stack-tag">{t}</span>)}
             </div>
             <div style={{ marginTop: 20 }}>
               <Magnetic>
@@ -662,17 +660,23 @@ function ProjectCard({ p, delay }) {
 }
 function Projects() {
   const projects = [
-    { title: "SentinelAI", featured: true, icon: "🛡️",
+    { title: "GovAssist AI — AI-Powered Government Scheme Navigator", featured: true, icon: "🤖",
       bg: "linear-gradient(135deg,#fff7ed,#fce7f3)",
-      desc: "Advanced AI-powered security and intelligent monitoring platform with real-time anomaly detection, predictive threat analysis, and an analytics dashboard for smart decision support.",
-      stack: ["React","Python","AI/ML","Node.js","MongoDB","AWS"],
+      desc: "Developed an AI-powered platform that helps citizens discover relevant Central and State Government welfare schemes using profile-based eligibility information. Integrated Agentic AI and RAG-based retrieval for context-aware discovery, personalized eligibility guidance, multilingual assistance, document analysis, and step-by-step application guidance.",
+      stack: ["Agentic AI","LLMs","RAG","QSVM"],
       demo: null, github: null },
     { title: "Intelligent Complaint Management Platform", featured: false, icon: "💬",
       bg: "linear-gradient(135deg,#eff6ff,#f0fdfa)",
-      desc: "Full Stack MERN application for real-time complaint tracking with user authentication, CRUD operations, REST API integration, and live status monitoring.",
+      desc: "Built and deployed a full-stack complaint management platform supporting complaint submission, real-time tracking, CRUD operations, and RESTful API integration. Implemented MongoDB connectivity and responsive, user-facing workflows for managing complaints end-to-end.",
       stack: ["MongoDB","Express.js","React.js","Node.js"],
       demo: "https://complaint-management-platform.netlify.app/",
       github: "https://github.com/lavanya2005g-lavs/complaint_management_platform" },
+    { title: "Personal Portfolio Website", featured: false, icon: "✨",
+      bg: "linear-gradient(135deg,#f5f3ff,#ecfeff)",
+      desc: "Designed and deployed a professional portfolio website to present technical skills, projects, certifications, and achievements in a recruiter-friendly format.",
+      stack: ["React","Vercel"],
+      demo: "https://lavanyagandikota-portfolio.vercel.app/",
+      github: null },
   ];
   return (
     <Section id="projects" style={{ background: "#fff" }}>
@@ -688,7 +692,7 @@ function Projects() {
 function Education() {
   const edu = [
     { degree: "B.Tech in Information Technology", school: "GMR Institute of Technology", years: "2024 – 2027", cgpa: "9.2", icon: "🎓", dot: "#ea580c", ring:"#ffedd5" },
-    { degree: "Diploma in Computer Engineering", school: "Balajee Polytechnic College", years: "2020 – 2024", cgpa: "8.9", icon: "📜", dot: "#0891b2", ring:"#cffafe" },
+    { degree: "Diploma in Computer Engineering", school: "Balajee Polytechnic College", years: "2021 – 2024", cgpa: "8.9", icon: "📜", dot: "#0891b2", ring:"#cffafe" },
   ];
   return (
     <Section id="education">
@@ -724,14 +728,12 @@ function Education() {
 /* ── CERTIFICATIONS ──────────────────────────────────────────────────────── */
 function Certifications() {
   const certs = [
+    ["⚙️","ServiceNow Certified Application Developer (CAD)","Zurich version",null],
     ["🌐","Full Stack Web Development with Node.js and MongoDB","L&T EduTech","/certificates/fullstack-it.pdf"],
-    ["☁️","AWS Cloud Computing Internship","HashTek Solutions","/certificates/aws-internship.pdf.jpeg"],
     ["🤖","AWS Academy Graduate – Generative AI Foundations","AWS Academy","/certificates/aws-genai.pdf"],
-    ["📊","Data Labeling Job Simulation","Deloitte · Forage","/certificates/deloitee-datalabelling.pdf"],
-    ["💼","Virtual Job Simulation","Deloitte · Forage","/certificates/deloiteee-virtual.pdf"],
     ["🧠","Introduction to Generative AI","Coursera","/certificates/coursera-genai.pdf"],
-    ["🔐","Cyber Job Simulation","Deloitte · Forage","/certificates/deloitee-cyber.pdf"],
-    ["🛡️","Cybersecurity Analyst Job Simulation","Tata · Forage","/certificates/tata-cybersecurity.pdf"],
+    ["📊","Deloitte Data Labeling Job Simulation","Forage · Jan 2026","/certificates/deloitee-datalabelling.pdf"],
+    ["💼","Deloitte Virtual Job Simulation","Forage","/certificates/deloiteee-virtual.pdf"],
   ];
   return (
     <Section id="certifications" style={{ background: "#fff" }}>
@@ -739,13 +741,13 @@ function Certifications() {
       <div className="certs-grid">
         {certs.map(([icon,title,issuer,pdf], i) => (
           <Reveal key={title} delay={i*60}>
-            <a href={pdf} target="_blank" rel="noopener noreferrer" className="card"
-              style={{ padding: "22px 20px", display: "flex", gap: 16, alignItems: "flex-start", textDecoration: "none", cursor: "pointer" }}>
+            <a href={pdf || undefined} target={pdf ? "_blank" : undefined} rel={pdf ? "noopener noreferrer" : undefined} className="card"
+                style={{ padding: "22px 20px", display: "flex", gap: 16, alignItems: "flex-start", textDecoration: "none", cursor: pdf ? "pointer" : "default" }}>
               <div style={{ fontSize: 26, flexShrink: 0 }}>{icon}</div>
               <div>
                 <h4 style={{ color: "#1c1917", fontWeight: 700, fontSize: 14, lineHeight: 1.4 }}>{title}</h4>
                 <p style={{ color: "#ea580c", fontSize: 12, marginTop: 5, fontWeight: 700 }}>{issuer}</p>
-                <p style={{ color: "#a8a29e", fontSize: 11, marginTop: 6, fontWeight: 600 }}>View Certificate ↗</p>
+                <p style={{ color: "#a8a29e", fontSize: 11, marginTop: 6, fontWeight: 600 }}>{pdf ? "View Certificate ↗" : "Certificate asset pending upload"}</p>
               </div>
             </a>
           </Reveal>
@@ -760,7 +762,7 @@ function Achievements() {
   const items = [
     ["🔥","100 Days Coding Streak","CodeChef","Consistently solved problems every day for 100 consecutive days.", "linear-gradient(135deg,#fff7ed,#ffedd5)"],
     ["💎","Diamond Streak Badge","CodeChef","Earned the prestigious Diamond Streak Badge for sustained coding excellence.", "linear-gradient(135deg,#eff6ff,#dbeafe)"],
-    ["📄","Research Paper Published","IJRPR · Vol 7, Issue 4","Published \"Intelligent Complaint Management System\" — A+ grade journal, Impact Factor 6.844.", "linear-gradient(135deg,#f0fdf4,#dcfce7)"],
+    ["📄","Intelligent Complaint Management System","IJRPR · Vol 7, Issue 4 · 22 Apr 2026","Accepted for publication in International Journal of Research Publication and Reviews (IJRPR), Volume 7, Issue 4.", "linear-gradient(135deg,#f0fdf4,#dcfce7)"],
   ];
   return (
     <Section id="achievements">
